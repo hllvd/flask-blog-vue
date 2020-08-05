@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html lang="pt-BR">
+<head>
+    <title>Hello World!</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" SameSite=None >
+    <meta charset="utf-8">
+    <meta name="description" content="Finança Quantitativa e Algotrading">
+    <meta name="author" content="Hudsonvandal">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+    <link rel="stylesheet" href="static/css/styles.css?v=1.0">
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <script src="https://npmcdn.com/vue-router/dist/vue-router.js"></script>
+    <script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://unpkg.com/http-vue-loader"></script>
+</head>
+
+<body>
+<div id="app">
+    <router-link to="/" >/home</router-link>
+    {{msg}}
+    teste vue
+</div>
+	É um teste
+ 
+ <script type="text/javascript">
+      const Home = { template: '<div>Home 2</div>' }
+
+      const router = new VueRouter({
+       
+          routes: [
+            { path: '/home', component: httpVueLoader('static/js/components/home.vue') }
+           
+          ]
+        })
+
+      new Vue({
+      router,
+  		el: '#app',
+  		data: {
+  		  msg: 'Hello World'
+  		},
+
+    });
+
+  </script>
+</body>
+</html>
