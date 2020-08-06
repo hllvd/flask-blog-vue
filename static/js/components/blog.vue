@@ -1,13 +1,13 @@
 <template>
  <div class="container">
-  Página inicial
+    Blog
 </div><!-- container-->
 </template>
 
 <script>
 module.exports = {
   mounted () {
-    console.log('Hello Home')
+    console.log('Hello blog')
   }
 }
 </script>

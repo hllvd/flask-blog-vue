@@ -7,7 +7,7 @@
 <script>
 module.exports = {
   mounted () {
-    console.log('Hello Home')
+    console.log('Hello World 2')
   }
 }
 </script>

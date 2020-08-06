@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
     <title>Hello World!</title>
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" SameSite=None >
     <meta charset="utf-8">
     <meta name="description" content="Finança Quantitativa e Algotrading">
@@ -12,36 +12,45 @@
     <link rel="stylesheet" href="static/css/styles.css?v=1.0">
     <script src="https://npmcdn.com/vue/dist/vue.js"></script>
     <script src="https://npmcdn.com/vue-router/dist/vue-router.js"></script>
-    <script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
-    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
-    <script src="https://unpkg.com/http-vue-loader"></script>
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://unpkg.com/http-vue-loader@1.4.2/src/httpVueLoader.js"></script>
 </head>
 
 <body>
 <div id="app">
-    <router-link to="/" >/home</router-link>
-    {{msg}}
-    teste vue
+    <router-link to="/" >Home</router-link><br>
+    <router-link to="/blog" >blog</router-link>
+    [[message]]
+ 
+  abaixo msg
+    <my-component></my-component>
+    <br>abaixo component
 </div>
 	É um teste
- 
+
  <script type="text/javascript">
-      const Home = { template: '<div>Home 2</div>' }
+      const Home = { template: '<div>foo</div>' }
+      const Blog = { template: 'prueba' }
 
+      const routes = [
+        { path: '/blog', component: Blog  },
+        { path: '/', component: Home }
+      ]
       const router = new VueRouter({
-       
-          routes: [
-            { path: '/home', component: httpVueLoader('static/js/components/home.vue') }
-           
-          ]
-        })
-
+        mode: 'history',
+        routes: routes
+      })
       new Vue({
-      router,
+      router:router,
   		el: '#app',
+      delimiters: ['[[' , ']]'],
   		data: {
-  		  msg: 'Hello World'
+  		  message: 'Hello World'
   		},
+      components : {
+        'my-component':httpVueLoader('/static/js/components/home.vue')
+      }
 
     });
 
