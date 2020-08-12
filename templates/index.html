@@ -22,7 +22,7 @@
     <router-link to="/" >Home</router-link><br>
     <router-link to="/blog" >blog</router-link>
     [[message]]
- 
+	<router-view></router-view>
   abaixo msg
     <my-component></my-component>
     <br>abaixo component
@@ -31,10 +31,10 @@
 
  <script type="text/javascript">
       const Home = { template: '<div>foo</div>' }
-      const Blog = { template: 'prueba' }
+      const Blog = { template: httpVueLoader('static/js/components/blog.vue') }
 
       const routes = [
-        { path: '/blog', component: Blog  },
+        { path: '/blog', component: httpVueLoader('static/js/components/blog.vue'), template:'<template>Blog</template>' },
         { path: '/', component: Home }
       ]
       const router = new VueRouter({
@@ -50,7 +50,12 @@
   		},
       components : {
         'my-component':httpVueLoader('/static/js/components/home.vue')
-      }
+      },
+	  computed: {
+			ViewComponent () {
+			  return Blog
+			}
+  }
 
     });
 
